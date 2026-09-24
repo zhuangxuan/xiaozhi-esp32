@@ -5,6 +5,7 @@
 #include "application.h"
 #include "button.h"
 #include "config.h"
+#include "car_link.h"
 #include "i2c_device.h"
 #include "esp32_camera.h"
 #include "mcp_server.h"
@@ -66,7 +67,7 @@ private:
     Button boot_button_;
     Display* display_;
     Pca9557* pca9557_;
-    Esp32Camera* camera_;
+    Esp32Camera* camera_ = nullptr;
     PressToTalkMcpTool* press_to_talk_tool_ = nullptr;
 
     void InitializeI2c() {
@@ -286,8 +287,8 @@ public:
         InitializeSt7789Display();
         InitializeTouch();
         InitializeButtons();
-        InitializeCamera();
         InitializeTools();
+        StartCarLink();
 
         GetBacklight()->RestoreBrightness();
     }

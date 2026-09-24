@@ -58,5 +58,8 @@
 
 #define XCLK_FREQ_HZ 20000000
 
+/* 本期不做图传。D1/D0 改作电调与舵机信号，摄像头不再初始化。 */
+#define CAR_THROTTLE_GPIO GPIO_NUM_18
+#define CAR_STEER_GPIO GPIO_NUM_16
 
 #endif // _BOARD_CONFIG_H_
